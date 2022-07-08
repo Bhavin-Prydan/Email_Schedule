@@ -22,7 +22,7 @@ def send_Reminder():
 		for i in BirthDay_person:	
 			person = Employee.objects.exclude(Email=i.Email)
 			for p in person:
-				html_content = '<p>Dear '+ p.Name +',</p>' + '<p> kale <b>'+ i.Name+' </b> no birthday 6</p><p>Regards, <br><b>Prydan</b></p>'
+				html_content = "<p>Dear "+ p.Name +",</p>" + "<p>  Just a gentle reminder to everyone that tommorow is <b>"+ i.Name+" </b>'s birthday, so I require lots of attention, please! Gifts are not necessary (although they are very welcome!), the most important part of his birthday is being able to spend time with as many of you as he can! he can't wait to see everyone later to celebrate!</p><p>Regards, <br><b>Prydan</b></p>"
 				data = {'to_email': p.Email,'email_subject': f'Happy Birthday {p.Name}'}
 				Util.send_email(data,html_content)	 
 					
